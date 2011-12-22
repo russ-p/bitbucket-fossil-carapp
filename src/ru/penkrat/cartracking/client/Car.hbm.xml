@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="ru.penkrat.cartracking.client.Car" table="Car">
+    <id name="id" column="CAR_ID" type="java.lang.Long"  unsaved-value="0">
+      <generator class="native"/>
+    </id>
+    <property name="model"/>
+    <property name="year"/>
+    <property name="color"/>
+    <property name="distance"/>
+    <property name="engineLiters"/>
+    <property name="vinNumber"/>
+    <property name="registrationPlate"/>
+    <!--
+    <set name="persons" table="PERSON_CAR" lazy="true">
+      <key column="CAR_ID"/>
+      <many-to-many column="RECORD_ID" class="ru.penkrat.cartracking.client.Person"/>
+    </set>
+    -->
+  </class>
+</hibernate-mapping>
