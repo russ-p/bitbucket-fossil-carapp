@@ -16,6 +16,7 @@ public interface GreetingServiceAsync {
 			throws IllegalArgumentException;
 
 	void getPersons(AsyncCallback<List<PersonDTO>> callback);
+	void getCars(AsyncCallback<List<CarDTO>> callback);
 	void savePerson(PersonDTO personDTO, AsyncCallback<Long> callback);
 	void saveCar(CarDTO carDTO, AsyncCallback<Long> callback);
 	void saveViolation(ViolationDTO violationDTO, AsyncCallback<Long> callback);

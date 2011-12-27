@@ -73,7 +73,7 @@ public class PersonDTO implements Serializable{
 		return surname +" "+ name;
 	}
 	public String toString(){
-		return name +" "+ surname + " "+id;
+		return getFullName() + " id #"+id;
 		
 	}
 }

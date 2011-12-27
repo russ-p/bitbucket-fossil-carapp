@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="ru.penkrat.cartracking.client.PersonCar" table="Person_Car">
+  <id column="ID" name="id" unsaved-value="0">
+   <generator class="native"/>
+  </id>
+  <property column="from" generated="never" lazy="false" name="dateFrom" type="timestamp"/>
+  <property column="to" generated="never" lazy="false" name="dateTo" type="timestamp"/>
+  <many-to-one name="person" class="Person" column="PERSON_ID" >
+  <many-to-one name="car" class="Car" column="CAR_ID" >
+ </class>
+</hibernate-mapping>
