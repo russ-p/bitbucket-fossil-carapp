@@ -112,23 +112,7 @@ public class SearchPage extends Composite {
 		cellTable = new CellTable<SearchResult>();
 		verticalPanel.add(cellTable);
 		cellTable.setSize("100%", "329px");
-
-		TextColumn<SearchResult> textColumn_1 = new TextColumn<SearchResult>() {
-			@Override
-			public String getValue(SearchResult object) {
-				return object.person.toString();
-			}
-		};
-		cellTable.addColumn(textColumn_1, "Person");
-
-		TextColumn<SearchResult> textColumn = new TextColumn<SearchResult>() {
-			@Override
-			public String getValue(SearchResult object) {
-				return object.car.toString();
-			}
-		};
-		cellTable.addColumn(textColumn, "Car");
-
+	
 		Column<SearchResult, String> ct = new Column<SearchResult, String>(
 				new ClickableTextCell()) {
 			@Override
@@ -136,13 +120,36 @@ public class SearchPage extends Composite {
 				return object.person.toString();
 			}
 		};
-		cellTable.addColumn(ct, "ClickableTextCell");
+		
 		ct.setFieldUpdater(new FieldUpdater<SearchResult, String>() {
 			@Override
 			public void update(int index, SearchResult object, String value) {
-				Window.alert("You clicked " + object.person.getFullName());
+				PersonEditForm ped = new PersonEditForm();
+				ped.setPerson(object.person);
+				ped.setReadOnly(true);
+				CarTrackingApp.getInstance().setForm(ped);
 			}
 		});
+		cellTable.addColumn(ct, "Person");
+
+		Column<SearchResult, String> ct2 = new Column<SearchResult, String>(
+				new ClickableTextCell()) {
+			@Override
+			public String getValue(SearchResult object) {
+				return object.car.toString();
+			}
+		};
+		
+		ct2.setFieldUpdater(new FieldUpdater<SearchResult, String>() {
+			@Override
+			public void update(int index, SearchResult object, String value) {
+				CarEditForm ped = new CarEditForm();
+				ped.setCar(object.car);
+				ped.setReadOnly(true);
+				CarTrackingApp.getInstance().setForm(ped);
+			}
+		});
+		cellTable.addColumn(ct2, "Car");
 		// Column<String, Date> column = new Column<String, Date>(new
 		// DateCell()) {
 		// @Override

@@ -124,11 +124,11 @@ public class PersonEditForm extends DockPanel implements ClickHandler {
 	}
 
 	public void setReadOnly(Boolean readOnly) {
-		textBoxName.setEnabled(readOnly);
-		textBoxSurname.setEnabled(readOnly);
-		textBoxMiddleName.setEnabled(readOnly);
-		comboBox.setEnabled(readOnly);
-		dateBox.setEnabled(readOnly);
+		textBoxName.setEnabled(!readOnly);
+		textBoxSurname.setEnabled(!readOnly);
+		textBoxMiddleName.setEnabled(!readOnly);
+		comboBox.setEnabled(!readOnly);
+		dateBox.setEnabled(!readOnly);
 		if (readOnly) {
 			lblNewOrEdit.setText("View");
 		}
